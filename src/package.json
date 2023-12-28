@@ -1,0 +1,22 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node .output/server/index.mjs",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "if command -v nuxt &> /dev/null; then nuxt prepare; fi"
+  },
+  "devDependencies": {
+    "nuxt": "^3.9.0",
+    "vue": "^3.3.13",
+    "vue-router": "^4.2.5"
+  },
+  "volta": {
+    "node": "20.10.0",
+    "pnpm": "8.13.1"
+  }
+}
