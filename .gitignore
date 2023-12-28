@@ -1,3 +1,5 @@
+*.iam.gserviceaccount.com.json
+
 # Nuxt dev/build outputs
 .output
 .data
