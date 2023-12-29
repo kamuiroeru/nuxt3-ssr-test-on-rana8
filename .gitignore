@@ -1,4 +1,6 @@
 *.iam.gserviceaccount.com.json
+*.env
+!.template.env
 
 # Nuxt dev/build outputs
 .output
