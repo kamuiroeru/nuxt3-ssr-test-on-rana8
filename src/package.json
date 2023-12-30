@@ -8,12 +8,28 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "if [ ! \"$CI\" = 'true' ]; then nuxt prepare; fi"
+    "postinstall": "if [ ! \"$CI\" = 'true' ]; then nuxt prepare; fi",
+    "storybook": "storybook dev --port 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@nuxt/ui": "^2.11.1",
+    "@nuxtjs/storybook": "7.0.0",
     "nuxt": "^3.9.0",
     "vue": "^3.3.13",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "7.5.3",
+    "@types/node": "^18.17.5",
+    "@storybook/vue3": "7.5.3",
+    "@storybook-vue/nuxt": "0.2.0",
+    "@storybook/addon-links": "7.5.3",
+    "@storybook/builder-vite": "7.5.3",
+    "@storybook/addon-essentials": "7.5.3",
+    "@storybook/addon-interactions": "7.5.3",
+    "@storybook/testing-library": "^0.2.0",
+    "@storybook/blocks": "7.5.3"
   },
   "volta": {
     "node": "20.10.0",
