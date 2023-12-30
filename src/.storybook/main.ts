@@ -1,9 +1,8 @@
-import type { StorybookConfig } from "@storybook-vue/nuxt";
+import type { StorybookConfig } from "@storybook/vue3-vite";
 
 const config: StorybookConfig = {
   stories: [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
     "@storybook/addon-links",
@@ -11,7 +10,7 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
   ],
   framework: {
-    name: "@storybook-vue/nuxt",
+    name: "@storybook/vue3-vite",
     options: {},
   },
   docs: {
