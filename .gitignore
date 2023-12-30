@@ -27,3 +27,4 @@ logs
 # Storybook
 **/.storybook/auto-imports.d.ts
 **/.storybook/components.d.ts
+storybook-static

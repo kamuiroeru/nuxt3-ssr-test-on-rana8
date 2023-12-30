@@ -21,8 +21,14 @@ const meta: Meta<typeof D4> = {
       control: {
         type: 'number',
         min: 1,
-        max: 4,
+        max: 20,
       }
+    },
+    maxN: {
+      control: {
+        type: 'inline-radio',
+      },
+      options: [4, 6, 8, 10, 12, 20],
     }
   },
 };
@@ -33,5 +39,6 @@ export const Component: Story = {
   args: {
     rolling: false,
     n: 3,
+    maxN: 4,
   },
 };

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node .output/server/index.mjs",
     "build": "nuxt build",
-    "predev": "rm -rf .nuxt && nuxt prepare",
+    "predev": "rm -rf .nuxt .output && nuxt prepare",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -14,14 +14,19 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@iconify/vue": "^4.1.1",
     "@nuxtjs/storybook": "7.0.0",
+    "@storybook-vue/nuxt": "0.2.0",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",
     "@storybook/addon-links": "7.5.3",
     "@storybook/blocks": "7.5.3",
+    "@storybook/builder-vite": "7.5.3",
     "@storybook/test": "^7.6.6",
+    "@storybook/testing-library": "^0.2.0",
     "@storybook/vue3": "7.5.3",
     "@storybook/vue3-vite": "^7.6.6",
+    "@types/node": "^18.17.5",
     "@types/three": "^0.160.0",
     "autoprefixer": "^10.4.16",
     "nuxt": "^3.9.0",
@@ -35,11 +40,7 @@
     "unplugin-auto-import": "^0.17.3",
     "unplugin-vue-components": "^0.26.0",
     "vue": "^3.3.13",
-    "vue-router": "^4.2.5",
-    "@types/node": "^18.17.5",
-    "@storybook-vue/nuxt": "0.2.0",
-    "@storybook/builder-vite": "7.5.3",
-    "@storybook/testing-library": "^0.2.0"
+    "vue-router": "^4.2.5"
   },
   "volta": {
     "node": "20.10.0",
