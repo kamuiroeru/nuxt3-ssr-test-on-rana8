@@ -46,14 +46,25 @@ const colorDef: Record<DiceType, { color: string; rollingColor: string }> = {
   },
 };
 
-interface Props {
+export interface Props {
   rolling: boolean;
   n: number;
   diceType: DiceType;
 }
 
 const props = defineProps<Props>();
-const randomDice = createRandomDice(diceTypeMapper[props.diceType]);
+const initRandomDice = (rolling: boolean, diceType: DiceType) => {
+  const randomDice = createRandomDice(diceTypeMapper[diceType]);
+  if (rolling) {
+    randomDice.roll()
+  }
+  return randomDice
+}
+let randomDice = initRandomDice(props.rolling, props.diceType)
+
+watchEffect(() => {
+  randomDice = initRandomDice(props.rolling, props.diceType)
+})
 
 watch(
   () => props.rolling,
