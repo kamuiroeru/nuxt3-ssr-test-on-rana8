@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
-  css: ['~/assets/css/main.css'],
+  css: ['@/assets/css/tailwind.css'],
   app: {
     head: {
       meta: [
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ['@nuxtjs/storybook'],
+  modules: ['@nuxtjs/storybook', '@nuxtjs/tailwindcss'],
   storybook: {
     url: 'http://localhost:6006',
     storybookRoute: '/__storybook__',
