@@ -1,46 +1,46 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import Colors from "tailwindcss/colors";
+import { type DiceType, diceTypeMapper } from '@/domain/dice'
 
-type DiceN = 4 | 6 | 8 | 10 | 12 | 20;
-const icons: Record<DiceN, string> = {
-  4: 'ph:triangle-fill',
-  6: 'ph:square-fill',
-  8: 'mdi:rhombus',
-  10: 'mdi:rhombus',
-  12: 'uis:pentagon',
-  20: 'bi:hexagon-fill',
+const icons: Record<DiceType, string> = {
+  'D4': 'ph:triangle-fill',
+  'D6': 'ph:square-fill',
+  'D8': 'mdi:rhombus',
+  'D10': 'mdi:rhombus',
+  'D12': 'uis:pentagon',
+  'D20': 'bi:hexagon-fill',
 }
-const colors: Record<DiceN, string> = {
-  4: Colors["red"][600],
-  6: Colors["yellow"][600],
-  8: Colors["green"][600],
-  10: Colors["blue"][600],
-  12: Colors["purple"][600],
-  20: Colors["pink"][600],
+const colors: Record<DiceType, string> = {
+  'D4': Colors["red"][600],
+  'D6': Colors["yellow"][600],
+  'D8': Colors["green"][600],
+  'D10': Colors["blue"][600],
+  'D12': Colors["purple"][600],
+  'D20': Colors["pink"][600],
 };
-const colorDef: Record<DiceN, { color: string; rollingColor: string }> = {
-  4: {
+const colorDef: Record<DiceType, { color: string; rollingColor: string }> = {
+  'D4': {
     color: "bg-red-600",
     rollingColor: "bg-red-400",
   },
-  6: {
+  'D6': {
     color: "bg-yellow-600",
     rollingColor: "bg-yellow-400",
   },
-  8: {
+  'D8': {
     color: "bg-green-600",
     rollingColor: "bg-green-400",
   },
-  10: {
+  'D10': {
     color: "bg-blue-600",
     rollingColor: "bg-blue-400",
   },
-  12: {
+  'D12': {
     color: "bg-purple-600",
     rollingColor: "bg-purple-400",
   },
-  20: {
+  'D20': {
     color: "bg-pink-600",
     rollingColor: "bg-pink-400",
   },
@@ -49,11 +49,11 @@ const colorDef: Record<DiceN, { color: string; rollingColor: string }> = {
 interface Props {
   rolling: boolean;
   n: number;
-  maxN: DiceN;
+  diceType: DiceType;
 }
 
 const props = defineProps<Props>();
-const randomDice = createRandomDice(props.maxN);
+const randomDice = createRandomDice(diceTypeMapper[props.diceType]);
 
 watch(
   () => props.rolling,
@@ -71,13 +71,13 @@ watch(
   <div class="rounded shadow-lg w-auto inline-block">
     <div class="px-6 py-4">
       <div class="flex flex-row align-middle">
-        <div class="font-bold text-xl mb-2">D{{ maxN }}</div>
+        <div class="font-bold text-xl mb-2">{{ diceType }}</div>
         <div class="flex-auto"></div>
-        <Icon :icon="icons[maxN]" class="mt-0.5" :class="rolling ? 'rotate-animation' : ''" :style="{ color: colors[maxN], fontSize: '1.5em' }" />
+        <Icon :icon="icons[diceType]" class="mt-0.5" :class="rolling ? 'rotate-animation' : ''" :style="{ color: colors[diceType], fontSize: '1.5em' }" />
       </div>
       <div
         class="rounded shadow-lg w-16 h-16 flex justify-center items-center"
-        :class="rolling ? colorDef[maxN].rollingColor : colorDef[maxN].color"
+        :class="rolling ? colorDef[diceType].rollingColor : colorDef[diceType].color"
       >
         <p class="text-2xl" :class="rolling ? 'text-black' : 'text-white'">
           {{ rolling ? randomDice.randomN : n }}

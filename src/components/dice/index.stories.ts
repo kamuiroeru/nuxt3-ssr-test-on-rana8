@@ -13,12 +13,12 @@ const meta: Meta<typeof Dice> = {
     },
     template: `
       <div class="flex gap-2">
-        <Dice v-bind="args" :maxN="4" />
-        <Dice v-bind="args" :maxN="6" />
-        <Dice v-bind="args" :maxN="8" />
-        <Dice v-bind="args" :maxN="10" />
-        <Dice v-bind="args" :maxN="12" />
-        <Dice v-bind="args" :maxN="20" />
+        <Dice v-bind="args" dice-type="D4" />
+        <Dice v-bind="args" dice-type="D6" />
+        <Dice v-bind="args" dice-type="D8" />
+        <Dice v-bind="args" dice-type="D10" />
+        <Dice v-bind="args" dice-type="D12" />
+        <Dice v-bind="args" dice-type="D20" />
       </div>
     `,
   }),
